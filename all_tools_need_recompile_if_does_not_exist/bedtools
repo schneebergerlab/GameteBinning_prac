@@ -1,0 +1,74 @@
+#!/bin/sh
+# Wrapper script - Roland Dieterich 2011-2015
+# The script
+# 1. Picks the desired software version
+# 2. Logs usage
+# 3. Executes the real binary
+
+# Configuration
+basedir=/opt/share/software
+logger=$basedir/logger
+
+# Set to true to get debugging messages for wrapper
+debugmode=false
+
+# Print out a debug message
+debug() {
+    if $debugmode ; then
+        echo $@
+    fi
+}
+
+# Get program name
+progname=`basename $0`
+debug "Program name: $progname"
+
+# Get program version
+awkcmd="/^$progname / { print \$2 }"
+package=""
+
+# Try if package.config is in the environment
+if test "$PACKAGE_CONFIG" ; then
+    package=`awk "$awkcmd" $PACKAGE_CONFIG`
+    debug "Package from environment $PACKAGE_CONFIG: $package"
+fi
+
+# Otherwise try if a local override exists
+if test -z "$package" -a -r $HOME/.package.config ; then
+    package=`awk "$awkcmd" $HOME/.package.config`
+    debug "Package from $HOME/.package.config: $package"
+fi
+
+# Finally use global default
+if test -z "$package" ; then
+    package=`awk "$awkcmd" $basedir/package.config`
+    debug "Package from $basedir/package.config: $package"
+fi
+
+# Check if an os specific version exists
+if test -r "/etc/os-release" ; then
+    . "/etc/os-release"
+    ospackage="${package}-${ID}-${VERSION_ID}"
+    debug "OS package: $ospackage"
+    if test -d $basedir/packages/$ospackage ; then
+        package=$ospackage
+    fi
+fi
+
+# Sanity checks
+if test ! -d $basedir/packages/$package -o \
+        ! -x $basedir/packages/$package/bin/$progname
+then
+    echo "Error: Package $package doesn't exist or $progname is misconfigured."
+    echo "Please contact SUSAN."
+    exit 1
+fi
+
+# Log usage
+if test -x $logger
+then
+    $logger "$progname" "$package"
+fi
+
+# Execute script
+exec $basedir/packages/$package/bin/$progname "$@"

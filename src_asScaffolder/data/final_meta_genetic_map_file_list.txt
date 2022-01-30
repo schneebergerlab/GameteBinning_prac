@@ -1,0 +1,2 @@
+//netscratch/dep_mercier/grp_schneeberger/projects/Method/gamete_binning_book_chapter_v9_ms//phased_assembly/s5_read_alignment_var_calling//var_call_snpr0.004/final_cell_config_cov0.1x_rep/gb_cov0.1x_consen_500cells_rep/MSTmap_correction/final_corrected_lg_1_map.txt
+//netscratch/dep_mercier/grp_schneeberger/projects/Method/gamete_binning_book_chapter_v9_ms//phased_assembly/s5_read_alignment_var_calling//var_call_snpr0.004/final_cell_config_cov0.1x_rep/gb_cov0.1x_consen_500cells_rep/MSTmap_correction/final_corrected_lg_2_map.txt

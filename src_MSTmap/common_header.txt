@@ -1,0 +1,10 @@
+population_type DH
+population_name LG
+distance_function haldane
+cut_off_p_value 0.01
+no_map_dist 15.0
+no_map_size 0
+missing_threshold 0.15
+estimation_before_clustering no
+detect_bad_data yes
+objective_function COUNT

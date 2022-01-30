@@ -1,0 +1,30 @@
+Chr1 0 117
+Chr1 1 387
+Chr1 2 555
+Chr1 3 369
+Chr1 4 119
+
+Chr2 0 234
+Chr2 1 576
+Chr2 2 544
+Chr2 3 194
+Chr2 4 22
+
+Chr3 0 209
+Chr3 1 586
+Chr3 2 523
+Chr3 3 218
+Chr3 4 38
+
+Chr4 0 261
+Chr4 1 623
+Chr4 2 517
+Chr4 3 151
+Chr4 4 21
+
+Chr5 0 146
+Chr5 1 475
+Chr5 2 517
+Chr5 3 329
+Chr5 4 93
+
