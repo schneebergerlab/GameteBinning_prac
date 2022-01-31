@@ -1,10 +1,8 @@
 # reformat genotype matrix to fit MSTmap
 
-cd /netscratch/dep_mercier/grp_schneeberger/bin/bin/MSTmap/shq_test/
-
 cov=0.05
 
-cp /netscratch/dep_mercier/grp_schneeberger/projects/Method/gamete_binning_book_chapter/s6_read_alignment_var_calling/final_cell_config_cov${cov}x/gb_${cov}x_res_tmp_pollen_genotypes/s2_genotype_contig_seq.txt s2_genotype_contig_seq_${cov}x.txt
+cp s2_genotype_contig_seq.txt s2_genotype_contig_seq_${cov}x.txt
 
 
 # common header
