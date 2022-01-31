@@ -1,7 +1,8 @@
 # GameteBinning_prac
 Here are the codes for a practice of gamete binning with simulated data, to achieve haplotype-resolved genome assembly.
 
-Note: publicly available tools are needed,
+Installation of publicly available tools
+=
 
 * [bedtools v2.29.0](https://github.com/arq5x/bedtools2)
 * [bowtie2 v2.4.4](https://github.com/BenLangmead/bowtie2)
