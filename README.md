@@ -17,3 +17,5 @@ Installation of self-developed tools
 =
 
 Please check [install.sh](https://github.com/schneebergerlab/GameteBinning_prac/blob/master/install.sh).
+
+Data used in this work can be downloaded at [data for gamete binning practice at Zenodo](https://zenodo.org/record/5920841/files/gamete_binning_practice_data.tar.gz)
