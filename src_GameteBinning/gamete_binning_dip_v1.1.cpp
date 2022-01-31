@@ -1,10 +1,7 @@
-/* this function, given a SNP marker file and genotype data of multiple pollen samples
+/* this tool, given a SNP marker file and genotype data of multiple gamete samples
    phase SNPs to reconstruct haplotypes.
    species targeted: heterozygous
-   TODO: consider small indels as markers
-   v6:  output crossovers
-   v6.1 output crossovers with detailed marker positions
-   v6.1 record potential bad markers for further filtering
+   #
    Hequan Sun, MPIPZ, Email:sunhequan@gmail.com/sun@mpipz.mpg.de 
    2019-2021
 */ 
@@ -23,7 +20,7 @@
 #include                   <iomanip>
 #include                <sys/stat.h>
 #include                  <dirent.h>
-#include              <system_error> // seems there would be compiling error when missing this for "ENOENT"
+#include              <system_error> // there would be compiling error when missing this for "ENOENT"
 #include            "split_string.h"
 //
 struct ALLELE
@@ -144,11 +141,11 @@ int main(int argc, char* argv[])
     {
         cout << endl;
         cout << "   Given raw (snp) marker files defined along contigs/chrs and \n" 
-             << "         resequencings of multiple pollen genomes, \n"            
-             << "   this tool phases markers (and order haplotye contigs - TODO)."           << endl;
+             << "         resequencings of multiple gamete genomes, \n"            
+             << "   this tool phases markers."           << endl;
         const char *buildString = __DATE__ ", " __TIME__ "";
-        cout << "   (version 1.0 - compiled on " << buildString << ")"               << endl << endl;
-        cout << "   Usage: gamete_binning_dip_vx --marker snp_list.txt --pollen pollen_consensus_flist.txt --size chrsizes.txt [--corr] [--lod] [--ims] -o outprefix" << endl;
+        cout << "   (version 1.1 - compiled on " << buildString << ")"               << endl << endl;
+        cout << "   Usage: gamete_binning_dip --marker snp_list.txt --pollen pollen_consensus_flist.txt --size chrsizes.txt [--corr] [--lod] [--ims] -o outprefix" << endl;
         cout << "          --marker gives snp marker file. "                                 << endl;
         cout << "          --pollen gives lists of A/C/G/T count info files. "               << endl;
         cout << "          --size   gives sizes of contigs. "                                << endl;
@@ -719,15 +716,10 @@ int main(int argc, char* argv[])
             patotalCoveredMarker += std::count(ptmp.poPat.begin(), ptmp.poPat.end(), 'M');
             patotalCoveredMarker += std::count(ptmp.poPat.begin(), ptmp.poPat.end(), 'P');            
             // PM=P
-            ////string pmstring = get_crossover(ptmp.poPat, "P"); // check pollen in P-cluster  
-            
-            
-            
+            ////string pmstring = get_crossover(ptmp.poPat, "P"); // check pollen in P-cluster                                    
             unsigned long leftp = 0;
             double        score = 0;
-            string pmstring     =  get_break_pos(ptmp.poPat, "P", pollenid, &leftp, &score, ctgid, contigmarker);  
-            
-               
+            string pmstring     =  get_break_pos(ptmp.poPat, "P", pollenid, &leftp, &score, ctgid, contigmarker);                             
             // output bed information if good
             bool outbed = false;
             vector<string> bedregions;
@@ -779,9 +771,7 @@ int main(int argc, char* argv[])
                            << pollenid    << "_x" << endl;                    
                     beditr ++;
                 }
-            }               
-               
-                      
+            }                                                    
             pollenPMtmp.insert(std::pair<int, string>((*ppitr).first, pmstring)); // 2-bits: MP/PM/MM/PP
             ppitr ++;
         }
@@ -1747,7 +1737,6 @@ bool get_PM_count(string posPattern, CLUSCNT* posCNT)
     }
     return true;
 }
-
 //
 bool correct_haplotype2_with_consensus(
                          map<int, POLLEN>                   maCluster,
@@ -2188,7 +2177,6 @@ bool correct_haplotype(  map<int, POLLEN>                   pollens,
     //
     return true;
 }
-
 //
 double calculate_lod(string patA, string patB)
 {
