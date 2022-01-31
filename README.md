@@ -1,7 +1,7 @@
 # GameteBinning_prac
 Here are the codes for a practice of gamete binning with simulated data, to achieve haplotype-resolved genome assembly.
 
-Installation of publicly available tools
+A) Installation of publicly available tools
 =
 
 * [bedtools v2.29.0](https://github.com/arq5x/bedtools2)
@@ -14,7 +14,7 @@ Installation of publicly available tools
 * [R v3.5.1](https://cran.r-project.org/)
 * [samtools/bcftools v1.9](https://github.com/samtools/)
 
-Installation of self-developed tools
+B) Installation of self-developed tools
 =
 
 Please check [install.sh](https://github.com/schneebergerlab/GameteBinning_prac/blob/master/install.sh).
