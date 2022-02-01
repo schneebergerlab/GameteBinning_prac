@@ -4,6 +4,8 @@ git clone https://github.com/schneebergerlab/GameteBinning_prac.git
 
 # install necessary tools
 
+cd GameteBinning_prac
+
 srcall=`echo src_*/`
 for src in ${srcall}; do cd ./${src}; echo ./${src}; make; cd ..; done
 
