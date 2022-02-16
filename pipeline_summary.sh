@@ -30,6 +30,7 @@ cov=0.1
 N=500
 
 #### All necessary data would be simulated as below - HiFi, initial assembly and single-gamete sequencings
+####     if you want to simulate different cases with the global parameters, comment lines 35 and 153 to turn on simulation.
 
 <<simulaton_code
 
