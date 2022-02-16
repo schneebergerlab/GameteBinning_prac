@@ -80,14 +80,14 @@ echo
 ls -lrt final_corrected_lg_*_marker_gt_phase.txt
 echo 
 
-# step 5. prepare files for later usage: these files are not used for pacbio_genotyper_v3 anymore, because the markers they have are limited. But the following files are required by asCaffolder_v3. 20211128 to generate updated map and phasing info of markers.
+# step 5. prepare files for later usage: these files are not used for long_read_genotyper anymore, because the markers they have are limited. But the following files are required by asCaffolder. 20211128 to generate updated map and phasing info of markers.
 
 wd=${GB_DIR}/MSTmap_correction
 echo ${wd}/final_corrected_lg_*_map.txt | sed 's/ /\n/g' > final_meta_genetic_map_file_list.txt
 echo ${wd}/final_corrected_lg_*_marker_gt_phase.txt | sed 's/ /\n/g' > final_meta_genetic_map_marker_phase_file_list.txt
 
 echo 
-echo "Result 3: files prepared for asCaffolder_v2: "
+echo "Result 3: files prepared for asCaffolder: "
 echo
 ls -lrt final_meta_genetic_map*.txt
 echo 
