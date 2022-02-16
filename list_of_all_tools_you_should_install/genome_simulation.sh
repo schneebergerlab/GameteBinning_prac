@@ -66,7 +66,8 @@ echo "##########################################################################
 echo
 echo "##############################################################################################################" 
 echo "check chr lengths in ${ref_genome} "
-fasta_length ${ref_genome} | grep '>' | sed 's/>//g' > col.sizes
+# fasta_length ${ref_genome} | grep '>' | sed 's/>//g' > col.sizes
+fasta_length ${ref_genome} > col.sizes
 cat col.sizes
 echo "##############################################################################################################" 
 
@@ -86,7 +87,8 @@ targt_fasta=$(ls *.fasta)
 mv ${targt_fasta} hapA_${targt_fasta}
 #
 echo "size of selected chrs: "
-fasta_length hapA_${targt_fasta} | grep '>' | sed 's/>//g'
+#fasta_length hapA_${targt_fasta} | grep '>' | sed 's/>//g'
+fasta_length hapA_${targt_fasta} 
 echo "##############################################################################################################" 
 #
 echo
@@ -128,10 +130,12 @@ do
 done
 echo "merge chr-wise sequences from the same hap done."
 echo "Info: haplotype A (Col-0) sequences given by F1_Col_hapA.fa with length: "
-fasta_length F1_Col_hapA.fa | grep '>' | sed 's/>//g'
+# fasta_length F1_Col_hapA.fa | grep '>' | sed 's/>//g'
+fasta_length F1_Col_hapA.fa
 #
 echo "Info: haplotype B (\"Ler\") sequences given by F1_Ler_hapB.fa with length: "
-fasta_length F1_Ler_hapB.fa | grep '>' | sed 's/>//g' 
+# fasta_length F1_Ler_hapB.fa | grep '>' | sed 's/>//g' 
+fasta_length F1_Ler_hapB.fa
 echo "##############################################################################################################" 
 echo
 #

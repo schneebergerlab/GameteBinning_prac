@@ -713,7 +713,7 @@ bool complete_genetic_map_del_based(map<string, map<unsigned long, DELMARKER> > 
                                                                                          this_gm_contigs,
                                                                                          contigMarkerPM,
                                                                                          &highest_score);
-                                ofp_log << "       : score with P pattern = " << highest_score << endl;                                                                                         
+                                ofp_log << "       : score with P pattern = " << highest_score << endl;
                                 if(highest_score == highest_score_overall)
                                 {
                                     ofp_log << "         Warning: a tie found for " << this_raw_mkr << " with score " 
