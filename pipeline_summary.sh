@@ -32,7 +32,7 @@ N=500
 #### All necessary data would be simulated as below - HiFi, initial assembly and single-gamete sequencings
 ####     if you want to simulate different cases with the global parameters, comment lines 35 and 153 to turn on simulation.
 
-<<simulaton_code
+#### <<simulaton_code
 
 #### 3.1 Simulation of heterozygous diploid genome. 
 ####     1. Create working directory for genome simulation
@@ -150,11 +150,11 @@ mutation_rate=0.004
 mkdir gam_read_snpr${mutation_rate}
 cd gam_read_snpr${mutation_rate}
 
-simulaton_code
+#### simulaton_code
 
 ####     6. Simulate short reads from each gamete genome at a coverage of 0.1x (~5 seconds per gamete; Note 3)
 ####        bsub -o pirs.log -e pirs.err -q short -R "span[hosts=1] rusage[mem=100]" -M 1000 "pirs simulate -i ${genome} -s ${baseprofile} -m 500 -v 25 -l 100 -x ${cov} -e 0.001 -a 0 -g 0 -o gamete${gi}_${cov}x > gamete${gi}_${cov}x_sim.log"
-for gi in {450..499}; do
+for gi in {0..499}; do
 cd ${phased_assembly}/s4_gamete_sequencing_simulation/gam_read_snpr${mutation_rate}
 mkdir gamete_${gi}
 cd gamete_${gi}
